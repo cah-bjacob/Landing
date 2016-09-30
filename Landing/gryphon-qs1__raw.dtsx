@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="gryphon-qs1__raw"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{2E8C4BF8-08F3-4446-BE86-90CDB252CB57}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{797507D5-73F6-4E54-8F0B-A88C9279DC3E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,7 +68,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -85,7 +85,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
@@ -141,7 +141,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2"
+          DTS:ThreadHint="0"
           DTS:TransactionOption="0">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -177,7 +177,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get BatchTrasactionId"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -200,7 +200,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Package Audit - Begin"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -229,29 +229,22 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="186,42"
-          Id="Package\Get BatchTrasactionId"
-          TopLeft="217,67.2222222222222" />
-        <AnnotationLayout
-          Text="Call stored proc to get the Batch Transaction Id.  Save into variable inbBatchTransactionId"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="503,60"
-          Id="12f72aa4-436f-4a8e-9542-811ee7c3844c"
-          TopLeft="407,65.2222222222222" />
+          Size="165,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="279,201" />
         <NodeLayout
-          Size="184,42"
-          Id="Package\Package Audit - Begin"
-          TopLeft="224,137.222222222222" />
-        <AnnotationLayout
-          Text="Call stored proc to insert package level audit - Begin"
-          ParentId="Package"
-          FontInfo="{assembly:Null}"
-          Size="308,60"
-          Id="f6ec79e0-5e24-48f6-8ed3-f11df3c22cc1"
-          TopLeft="416,131.222222222222" />
+          Size="174,42"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="167,509" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,55"
+          Size="205,98"
+          Id="Package\For Loop Container"
+          TopLeft="411,488" />
         <NodeLayout
           Size="165,42"
           Id="Package\Foreach Loop Container\Execute SQL Task"
@@ -264,9 +257,13 @@
           Id="Package\Foreach Loop Container"
           TopLeft="210,285.333333333334" />
         <NodeLayout
-          Size="165,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="279,201" />
+          Size="186,42"
+          Id="Package\Get BatchTrasactionId"
+          TopLeft="217,67.2222222222222" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Package Audit - Begin"
+          TopLeft="224,137.222222222222" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="361.5,243">
@@ -301,17 +298,27 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="205,55"
-          Size="205,98"
-          Id="Package\For Loop Container"
-          TopLeft="411,488" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Execute SQL Task 1"
-          TopLeft="167,509" />
+        <AnnotationLayout
+          Text="Call stored proc to get the Batch Transaction Id.  Save into variable inbBatchTransactionId"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="503,42"
+          Id="12f72aa4-436f-4a8e-9542-811ee7c3844c"
+          TopLeft="407,65.2222222222222" />
+        <AnnotationLayout
+          Text="Call stored proc to insert package level audit - Begin"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="308,42"
+          Id="f6ec79e0-5e24-48f6-8ed3-f11df3c22cc1"
+          TopLeft="416,131.222222222222" />
+        <AnnotationLayout
+          Text="test"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="51,60"
+          Id="c7926110-094d-4add-b410-dec9b0ae2ae7"
+          TopLeft="494,228" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
